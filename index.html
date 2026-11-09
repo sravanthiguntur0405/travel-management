@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderly | Travel & Tourism</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+    <nav class="navbar">
+        <a href="#home" class="logo">Wander<span>ly.</span></a>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#destinations">Destinations</a>
+            <a href="#hotels">Hotels</a>
+            <a href="#packages">Packages</a>
+            <a href="#about">About</a>
+        </div>
+
+        <div class="nav-actions">
+            <button id="themeToggle" class="icon-btn" title="Toggle theme">🌙</button>
+            <button onclick="showWishlist()" class="icon-btn">♡ Wishlist</button>
+            <button onclick="showBookings()" class="nav-booking">My Bookings</button>
+        </div>
+    </nav>
+</header>
+
+<main>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="tagline">EXPLORE THE BEAUTY OF INDIA</span>
+            <h1>Discover Your Next<br><span>Adventure</span></h1>
+            <p>Find amazing destinations, comfortable hotels and memorable travel experiences.</p>
+
+            <form class="search-box" id="searchForm">
+                <div>
+                    <label>Where to?</label>
+                    <input type="text" id="heroSearch" placeholder="Search destinations...">
+                </div>
+                <button type="submit">Explore Now →</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="stats">
+        <div><h2>50+</h2><p>Destinations</p></div>
+        <div><h2>100+</h2><p>Hotels</p></div>
+        <div><h2>25+</h2><p>Travel Packages</p></div>
+        <div><h2>10K+</h2><p>Happy Travellers</p></div>
+    </section>
+
+    <!-- Destinations -->
+    <section class="section" id="destinations">
+        <div class="section-heading">
+            <div>
+                <span class="tagline">EXPLORE PLACES</span>
+                <h2>Popular Destinations</h2>
+                <p>Find your perfect holiday destination.</p>
+            </div>
+        </div>
+
+        <div class="filter-bar">
+            <input type="search" id="destinationSearch" placeholder="Search destinations...">
+
+            <select id="categoryFilter">
+                <option value="all">All Categories</option>
+                <option value="beach">Beaches</option>
+                <option value="mountain">Mountains</option>
+                <option value="heritage">Heritage</option>
+                <option value="nature">Nature</option>
+            </select>
+
+            <select id="sortFilter">
+                <option value="default">Sort By</option>
+                <option value="low">Price: Low to High</option>
+                <option value="high">Price: High to Low</option>
+                <option value="rating">Top Rated</option>
+            </select>
+        </div>
+
+        <div class="destination-grid" id="destinationGrid"></div>
+    </section>
+
+    <!-- Hotels -->
+    <section class="section alternate" id="hotels">
+        <div class="section-heading">
+            <div>
+                <span class="tagline">STAY COMFORTABLY</span>
+                <h2>Recommended Hotels</h2>
+                <p>Enjoy comfortable stays during your journey.</p>
+            </div>
+        </div>
+
+        <div class="hotel-grid" id="hotelGrid"></div>
+    </section>
+
+    <!-- Packages -->
+    <section class="section" id="packages">
+        <div class="section-heading center">
+            <span class="tagline">CHOOSE YOUR JOURNEY</span>
+            <h2>Travel Packages</h2>
+            <p>Select a package according to your budget.</p>
+        </div>
+
+        <div class="package-grid">
+            <div class="package-card">
+                <span class="package-label">BASIC</span>
+                <h3>Starter Explorer</h3>
+                <h2>₹4,999 <small>/ person</small></h2>
+                <p>2 Days / 1 Night</p>
+                <ul>
+                    <li>✓ Standard Hotel</li>
+                    <li>✓ Breakfast</li>
+                    <li>✓ Local Sightseeing</li>
+                    <li>✕ Private Transport</li>
+                </ul>
+                <button onclick="openBooking('Basic Package',4999)">Choose Package</button>
+            </div>
+
+            <div class="package-card popular">
+                <span class="package-label">MOST POPULAR</span>
+                <h3>Adventure Plus</h3>
+                <h2>₹8,999 <small>/ person</small></h2>
+                <p>4 Days / 3 Nights</p>
+                <ul>
+                    <li>✓ Premium Hotel</li>
+                    <li>✓ Breakfast & Dinner</li>
+                    <li>✓ Sightseeing</li>
+                    <li>✓ Transportation</li>
+                </ul>
+                <button onclick="openBooking('Standard Package',8999)">Choose Package</button>
+            </div>
+
+            <div class="package-card">
+                <span class="package-label">PREMIUM</span>
+                <h3>Luxury Escape</h3>
+                <h2>₹14,999 <small>/ person</small></h2>
+                <p>6 Days / 5 Nights</p>
+                <ul>
+                    <li>✓ Luxury Hotel</li>
+                    <li>✓ All Meals</li>
+                    <li>✓ Private Transport</li>
+                    <li>✓ Personal Tour Guide</li>
+                </ul>
+                <button onclick="openBooking('Premium Package',14999)">Choose Package</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="section about-section" id="about">
+        <div>
+            <span class="tagline">ABOUT WANDERLY</span>
+            <h2>Your Journey Begins Here</h2>
+            <p>
+                Wanderly is a travel and tourism platform designed to make
+                discovering destinations, exploring accommodation and
+                planning holidays easier. Explore places, compare packages
+                and organize your next adventure in one place.
+            </p>
+        </div>
+        <div class="about-image"></div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="section alternate">
+        <div class="section-heading center">
+            <span class="tagline">TRAVELLER STORIES</span>
+            <h2>What Travellers Say</h2>
+        </div>
+
+        <div class="review-grid">
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p>"A beautiful experience! Planning my Kerala trip was very easy."</p>
+                <h4>Priya Sharma</h4>
+                <small>Kerala Traveller</small>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p>"The packages were easy to understand and compare."</p>
+                <h4>Rahul Kumar</h4>
+                <small>Goa Traveller</small>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★☆</div>
+                <p>"A simple and convenient way to explore new places."</p>
+                <h4>Ananya Reddy</h4>
+                <small>Jaipur Traveller</small>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <h2>Get Travel Inspiration</h2>
+        <p>Subscribe to receive travel ideas and destination updates.</p>
+        <form id="newsletterForm">
+            <input type="email" placeholder="Enter your email address" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+</main>
+
+<footer>
+    <h2>Wanderly.</h2>
+    <p>Explore More. Travel Better. Create Memories.</p>
+    <p>© 2026 Wanderly. All Rights Reserved.</p>
+</footer>
+
+<!-- Booking Modal -->
+<div class="modal" id="bookingModal">
+    <div class="modal-content">
+        <button class="close-btn" onclick="closeModal()">×</button>
+        <h2>Plan Your Trip</h2>
+
+        <form id="bookingForm">
+            <input type="text" id="customerName" placeholder="Full Name" required>
+            <input type="email" id="customerEmail" placeholder="Email Address" required>
+            <input type="tel" id="customerPhone" placeholder="10-digit Phone Number"
+                   pattern="[0-9]{10}" maxlength="10" required>
+
+            <select id="bookingDestination" required>
+                <option value="">Select Destination</option>
+            </select>
+
+            <select id="bookingPackage" required>
+                <option value="Basic Package">Basic Package</option>
+                <option value="Standard Package">Standard Package</option>
+                <option value="Premium Package">Premium Package</option>
+            </select>
+
+            <input type="date" id="bookingDate" required>
+            <input type="number" id="travellers" min="1" max="20"
+                   value="1" placeholder="Number of Travellers" required>
+
+            <div class="price-summary">
+                <p>Price per person: <strong id="unitPrice">₹4,999</strong></p>
+                <p>Total Price: <strong id="totalPrice">₹4,999</strong></p>
+            </div>
+
+            <button type="submit" class="primary-btn">Confirm Booking</button>
+        </form>
+    </div>
+</div>
+
+<!-- Details Modal -->
+<div class="modal" id="detailsModal">
+    <div class="modal-content details-content">
+        <button class="close-btn" onclick="closeModal()">×</button>
+        <div id="detailsBody"></div>
+    </div>
+</div>
+
+<!-- Dashboard Modal -->
+<div class="modal" id="dashboardModal">
+    <div class="modal-content dashboard-content">
+        <button class="close-btn" onclick="closeModal()">×</button>
+        <div id="dashboardBody"></div>
+    </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
